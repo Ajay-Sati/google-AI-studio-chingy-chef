@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chef Gemini's Kitchen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="index.tsx"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.15.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <header>
+      <h1>Chef Gemini's Kitchen</h1>
+    </header>
+
+    <main>
+      <div id="app-container">
+        <!-- Input View -->
+        <div id="input-view">
+          <form id="recipe-form">
+            <label for="dish-input">What delicious dish do you want to cook today?</label>
+            <input type="text" id="dish-input" name="dish" placeholder="e.g., Chocolate Chip Cookies" required>
+            <button type="submit">Get Recipe</button>
+          </form>
+        </div>
+
+        <!-- Recipe View -->
+        <div id="recipe-view" class="hidden">
+          <div id="chef-avatar">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Chef Hat -->
+              <path fill="#FFFFFF" d="M100,20 C130,10 160,20 170,40 C190,60 180,80 160,85 C170,95 160,110 140,110 L60,110 C40,110 30,95 40,85 C20,80 10,60 30,40 C40,20 70,10 100,20 Z" />
+              <path stroke="#DDDDDD" stroke-width="2" fill="none" d="M100,20 C130,10 160,20 170,40 C190,60 180,80 160,85 M40,85 C20,80 10,60 30,40 C40,20 70,10 100,20" />
+              <!-- Face -->
+              <circle cx="100" cy="130" r="50" fill="#FDE3C8"/>
+              <!-- Eyes -->
+              <circle cx="85" cy="125" r="5" fill="#333333"/>
+              <circle cx="115" cy="125" r="5" fill="#333333"/>
+              <!-- Mouth -->
+              <path d="M90,145 Q100,155 110,145" stroke="#333333" stroke-width="3" fill="none" stroke-linecap="round"/>
+               <!-- Moustache -->
+              <path d="M80,135 Q100,145 120,135 Q100,130 80,135" fill="#333333"/>
+            </svg>
+          </div>
+          <div id="recipe-step-container">
+            <p id="recipe-step-text" aria-live="polite">Let's get cooking!</p>
+          </div>
+          <div id="recipe-controls">
+            <button id="prev-step-btn" aria-label="Previous Step">Previous</button>
+            <button id="repeat-step-btn" aria-label="Repeat Step">Repeat</button>
+            <button id="next-step-btn" aria-label="Next Step">Next</button>
+          </div>
+          <button id="start-over-btn">Cook Something Else</button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden">
+          <div class="spinner"></div>
+          <p>Chef Gemini is thinking...</p>
+        </div>
+        
+        <!-- Error Message -->
+        <div id="error-message" class="hidden"></div>
+      </div>
+    </main>
+
+  </body>
+</html>
